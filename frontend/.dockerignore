@@ -1,7 +1,0 @@
-Dockerfile
-.gitignore
-node_modules
-.prettierrc
-README.md
-package-lock.json
-.next
