@@ -5,8 +5,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8000:8000
+    env_file:
+      - ./env/backend.env
     volumes:
       - ./backend:/app/backend
+    depends_on:
+      - postgres
+
   frontend:
     build:
       context: ./frontend
@@ -17,8 +22,16 @@ services:
       - ./frontend/src:/app/frontend/src
     stdin_open: true
     tty: true
-  # postgres:
-  #   image: postgres
 
-  #   volumes:
-  #     - data:/var/lib/postgresql/data
+  postgres:
+    image: postgres
+    env_file:
+      - ./env/postgres.env
+    ports:
+      - 5432:5432
+
+    volumes:
+      - data:/var/lib/postgresql/data
+
+volumes:
+  data:
