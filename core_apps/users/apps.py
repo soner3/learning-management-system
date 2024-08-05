@@ -2,7 +2,7 @@ from django.apps import AppConfig
 from django.utils.translation import gettext_lazy as _
 
 
-class ExampleConfig(AppConfig):
+class UserConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "core_apps.example"
-    verbose_name = _("Example")
+    name = "core_apps.users"
+    verbose_name = _("User")

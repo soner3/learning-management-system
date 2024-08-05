@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: ./docker/local/django/Dockerfile
     volumes:
-      - ./:/usr/src/app/
+      - ./:/app/
       - ./staticfiles:/app/staticfiles
     ports:
       - 8000:8000
@@ -16,7 +16,7 @@ services:
     depends_on:
       - postgres
     command: /start
-    
+
   postgres:
     container_name: postgres
     build:
